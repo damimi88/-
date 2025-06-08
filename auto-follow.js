@@ -1,4 +1,4 @@
-const remoteConfigUrl = "https://raw.githubusercontent.com/damimi88/auto-follow-config/main/config.json";
+const remoteConfigUrl = "https://raw.githubusercontent.com/tianzhilan/auto-follow-config/main/config.json";
 
 // ======= 初始化变量 =======
 let blockedNameKeywords = [];
