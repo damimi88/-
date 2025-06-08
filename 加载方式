@@ -1,0 +1,11 @@
+fetch("https://raw.githubusercontent.com/damimi88/tainzhilan/main/auto-follow.js")
+  .then(res => res.text())
+  .then(code => {
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = url;
+    document.head.appendChild(script);
+  })
+  .catch(err => console.error("🚨 远程脚本加载失败", err));
