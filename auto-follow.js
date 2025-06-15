@@ -1,4 +1,4 @@
-const remoteConfigUrl = "https://raw.githubusercontent.com/damimi88/auto-follow-config/main/config.json";
+const remoteConfigUrl = "https://raw.githubusercontent.com/damimi88/tainzhilan/refs/heads/main/config.json";
 
 // ======= 初始化变量 =======
 let blockedNameKeywords = [];
@@ -34,9 +34,13 @@ async function fetchRemoteConfig() {
 setInterval(fetchRemoteConfig, 30000);
 
 // ======= 匹配函数 =======
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function matchWholeWord(text, keywords) {
   const lower = text.toLowerCase();
-  return keywords.some(w => new RegExp(`\\b${w}\\b`, "i").test(lower));
+  return keywords.some(w => new RegExp(`\\b${escapeRegExp(w)}\\b`, "i").test(lower));
 }
 
 function matchSubstring(text, keywords) {
